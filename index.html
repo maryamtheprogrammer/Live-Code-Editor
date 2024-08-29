@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Code Editor | Maryam Tutorials</title>
+    <!--Font Awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!--Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--CSS File-->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="marquee">
+      <marquee behavior="" direction="left"
+        >Live Code Editor | Not Responsive on other devices ------------ Maryam
+        Zohra Roll No# 5834</marquee
+      >
+    </div>
+
+    <div class="container">
+      <div class="left">
+        <label><i class="fa-brands fa-html5"></i> HTML</label>
+        <textarea id="html-code" cols="10" onkeyup="run()"></textarea>
+
+        <label><i class="fa-brands fa-css3-alt"></i> CSS</label>
+        <textarea id="css-code" cols="10" onkeyup="run()"></textarea>
+
+        <label><i class="fa-brands fa-js"></i> JavaScript</label>
+        <textarea id="js-code" cols="10" onkeyup="run()"></textarea>
+      </div>
+
+      <div class="right">
+        <label><i class="fa-solid fa-play"></i> Output</label>
+        <iframe id="output"></iframe>
+      </div>
+    </div>
+
+    <script>
+      function run() {
+        let htmlCode = document.getElementById("html-code").value;
+        let cssCode = document.getElementById("css-code").value;
+        let jsCode = document.getElementById("js-code").value;
+        let output = document.getElementById("output");
+
+        output.contentDocument.body.innerHTML =
+          htmlCode + "<style>" + cssCode + "</style>";
+        output.contentWindow.eval(jsCode);
+      }
+    </script>
+  </body>
+</html>
